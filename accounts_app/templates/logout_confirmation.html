@@ -1,0 +1,14 @@
+{% extends 'base_accounts.html' %}
+
+
+
+
+{% block content %}
+<form action="" method="POST">
+    {% csrf_token %}
+    <table class="reg_table_logout_confirm">
+        <tr><td>Вы действительно хотите выйти?</td></tr>
+        <tr><td align="center"><input class="reg_button" type="submit" value="Выйти"></td></tr>
+    </table>
+
+{% endblock %}

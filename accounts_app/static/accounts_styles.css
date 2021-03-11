@@ -1,0 +1,157 @@
+
+body{
+font-family: 'Ubuntu', Tahoma, Helvetica, sans-serif;
+font-size: 15px;
+color: #e5e7e9;
+background: #262626;
+z-index: 1;
+height:100%;
+}
+
+.top_header{
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+z-index: 99;
+}
+
+.top_header_hidden{
+display:flex;
+justify-content:center;
+height: 50px;
+z-index: 100;
+width: 100%;
+background-color: #2d58a2;
+background: linear-gradient(to right, #5614B0 0%, #DBD65C 100%);
+}
+
+.top_head_hidden_btn{
+width:150px;
+height:100%;
+margin:auto 10px;
+display:flex;
+justify-content: center;
+align-items: center;
+font-size:16px;
+font-weight:500px;
+}
+.top_head_hidden_btn a{
+text-decoration: none;
+color:#013a63;
+}
+.top_head_hidden_btn:hover{
+background: #d8e2dc;
+color:white;
+
+}
+
+.header table{
+color:grey;
+width:100%;
+height:60px;
+border:0px solid white;
+cellspasing:0px;
+background-color: #262626;
+background: linear-gradient(to bottom, #444 0%, #262626 100%) repeat scroll 0% 0%;
+}
+
+.header table td button:hover{
+color:white;
+}
+
+.button_cart{
+width: 70px;
+height:30px;
+margin:auto;
+padding:auto;
+color:grey;
+border:0;
+border:0px solid white;
+border-radius:3px;
+outline:0;
+background-color: #262626;
+background: linear-gradient(to bottom, #444 0%, #262626 100%) repeat scroll 0% 0%;
+}
+
+.search_input_field{
+color:grey;
+border:0;
+border:0px solid white;
+border-radius:3px;
+outline:0;
+background-color: #262626;
+background: linear-gradient(to right, #2C5364 0%, #203A43 100%);
+}
+.search_input_field:hover{
+background: linear-gradient(to right, #2C5364 0%, #203A43 200%);
+}
+.ok_search_btn{
+color:grey;
+text-decoration: none;
+}
+.ok_search_btn:hover{
+color:white;
+}
+
+.left_sidebar {
+    margin:5px;
+    background: #262626;
+    width:200px;
+}
+
+.left_sidebar table{
+    width:100%;
+    color:grey;
+    font-size:18px;
+    font-weight:400;
+
+}
+.left_sidebar tr:hover{
+    width:100%;
+    color:white;
+    background:#262626;
+}
+
+
+
+.reg_table {
+    margin:50px auto;
+    padding: 10px;
+    color:grey;
+    font-family:Times New Roman;
+    border: 0px solid;
+    background:#f8edeb;
+}
+
+.reg_table td{
+    border-bottom: 1px solid #ff6f91;
+}
+.regform_inputs {
+    width: 200px;
+    height:20px;
+    margin:3px;
+    border-radius: 5px;
+    background:#fefae0;
+    color: black;
+}
+.reg_button{
+    padding: 4px 0px;
+    width: 200px;
+    height:30px;
+    border: 2px solid #6c757d;
+    border-radius: 5px;
+    background:#f8f9fa;
+    color:black;
+    font-family:Brush Script MT, cursive;
+    font-size: 20px;
+    font-weigh: 600;
+}
+.regform_inputs:hover {
+    border-color:bde0fe;
+    box-shadow: 1px 1px 1px #bde0fe;
+}
+.reg_button:hover {
+    border-color:bde0fe;
+    box-shadow: 1px 1px 1px #bde0fe;
+}
