@@ -2,7 +2,6 @@ from django import forms
 from django.contrib.auth import password_validation
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, AuthenticationForm, UsernameField
 from django.core.exceptions import ValidationError
-
 from .models import AuthUserModel
 
 
@@ -19,14 +18,15 @@ class AuthUserRegisterForm(UserCreationForm):
         model = AuthUserModel
         fields = ['email', 'username', 'first_name', 'last_name', 'phone', 'password1', 'password2']
         widgets = {
-            'email': forms.EmailInput(attrs={'class':'regform_inputs'}),
-            'username': forms.TextInput(attrs={'class':'regform_inputs'}),
-            'first_name': forms.TextInput(attrs={'class':'regform_inputs'}),
-            'last_name': forms.TextInput(attrs={'class':'regform_inputs'}),
-            'phone': forms.TextInput(attrs={'class':'regform_inputs'}),
+            'email': forms.EmailInput(attrs={'class': 'regform_inputs'}),
+            'username': forms.TextInput(attrs={'class': 'regform_inputs'}),
+            'first_name': forms.TextInput(attrs={'class': 'regform_inputs'}),
+            'last_name': forms.TextInput(attrs={'class': 'regform_inputs'}),
+            'phone': forms.TextInput(attrs={'class':' regform_inputs'}),
         }
+        # не рабоает через класс Мета, подтягивает из АбстрактЮзера
         help_texts = {
-
+            'username': 'Неверно введёно имя пользователя. Значение может состоять из букв, цифр и симовлов: @/./+/-/_ .'
         }
         labels = {
             'email': 'Электронная почта',

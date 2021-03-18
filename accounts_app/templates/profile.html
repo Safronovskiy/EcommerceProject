@@ -1,0 +1,17 @@
+{% extends 'startpage.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="div_main_container">
+    <table class="table_profile" border="0px solid yellow">
+        <tr><td align="center"><a href="">Сменить пароль</a></td>
+            <td align="center"><a href="">Восстановить пароль</a></td>
+            <td align="center"><a href="http://127.0.0.1:8000/admin/">Админка</a></td>
+            <td align="center"><a href="{% url 'shop_app:add_category' %}">Добавить категорию</a></td>
+            <td align="center"><a href="">Добавить товар</a></td>
+        </tr>
+    </table>
+</div>
+
+{% endblock %}

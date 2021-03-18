@@ -43,7 +43,7 @@ class AuthUserModel(AbstractUser):
     objects = AuthUserManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username']              #required when superuser is registered, not for users
+    REQUIRED_FIELDS = ['username']   # обязательное поле, помимио основного поля, при регистрации суперюзера
 
     class Meta:
         verbose_name = 'Пользователь'
@@ -52,9 +52,13 @@ class AuthUserModel(AbstractUser):
     def __str__(self):
         return f'{self.email} ({self.username})'
 
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        AuthUserProfileModel.objects.get_or_create(user=self)
+
 class AuthUserProfileModel(models.Model):
     user = models.OneToOneField(AuthUserModel, on_delete=models.CASCADE, primary_key=True, related_name='profile')
-    image = models.ImageField(upload_to='userprofile/%Y/%m/')
+    image = models.ImageField(upload_to='userprofile/%Y/%m/', blank=True)
     first_name = models.CharField(max_length=100, verbose_name='Имя пользователя', blank=True, null=True)
     second_name = models.CharField(max_length=100, verbose_name='Фамилия пользователя', blank=True, null=True)
     age = models.PositiveSmallIntegerField(blank=True, null=True)
@@ -73,6 +77,10 @@ class AuthUserProfileModel(models.Model):
 
     def __str__(self):
         return f'Профиль пользвателя: {self.user}'
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        AuthUserContacts.objects.get_or_create(userprofile=self)
 
 class AuthUserContacts(models.Model):
     userprofile = models.OneToOneField(AuthUserProfileModel, on_delete=models.CASCADE, primary_key=True)

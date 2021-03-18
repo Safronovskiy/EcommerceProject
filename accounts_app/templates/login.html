@@ -4,21 +4,23 @@
 
 
 {% block content %}
-<form action="" method="POST">
+<form action="{% url 'accounts_app:login' %}" method="POST">
     {% csrf_token %}
     <table class="reg_table">
-        <tr><td>{{form.username.label}}</td><td>{{form.username}}</td></tr>
-        <tr><td>{{form.password.label}}</td><td>{{form.password}}</td></tr>
+        {% for input in form %}
+        <tr><td>{{input.label}}</td><td>{{input}}</td><td>{{input.errors}}</td></tr>
+        {% endfor %}
         <tr>
             <td>
                 <button class="reg_button" type="button"><a style="text-decoration:none;color:grey;" href="{% url 'accounts_app:register' %}">Регистрация</a></button>
-
             </td>
             <td><input class="reg_button" type="submit" value="Войти"></td>
         </tr>
+        <tr><td colspan="2" align="center">{% for message in messages %}
+                                           {{message}}
+                                           {% endfor %}
+        </td></tr>
     </table>
-    {% for message in messages %}
-        {{message.error}}
-    {% endfor %}
+
 </form>
 {% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{%  load static %}
+
+
+{% block content %}
+<div class="div_main_container">
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <table>
+    <tr><td>{{form.category_name.label}}</td><td>{{form.category_name}}</td><td>{{form.errors}}</td></tr>
+    <tr><td>{{form.category_slug.label}}</td><td>{{form.category_slug}}</td><td>{{form.errors}}</td></tr>
+    <tr><td></td><td><input type="submit" value="Ok"></td></tr>
+    </table>
+</form>
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+

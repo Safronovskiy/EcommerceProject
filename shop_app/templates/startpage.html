@@ -4,5 +4,55 @@
 
 
 {% block content %}
-hello!!!!!!!!
+    <div class="div_main_container">
+
+        <div class="left_sidebar">
+            <table>
+                <h3>КАТАЛОГ</h3>
+                {% for cat in cats %}
+
+                <tr><td><a href="{% url 'shop_app:category' cat.id %}">{{cat}}</a></td></tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        <div class="main_content">
+
+            <div class="main_top_banner">
+                <table>
+                    <tr>
+                        <td align="center">phone</td>
+                        <td align="center">A1 +37533-621-54-32</td>
+                        <td align="center">MTS +37529 743-09-76</td>
+                        <td align="center">Life +37525-345-87-123</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="main_slider">
+                <a href="/"><img width="750px" src="{% static 'img/central_banner_2x.jpg' %}" alt=""></a>
+            </div>
+
+            <div class="product_content">
+            {% for item in products %}
+                <div class="product_card">
+                    <table class="product_table" cellpadding="3px">
+                        <tr><td colspan="2" class="img_td" >
+                            <a href="{% url 'shop_app:details' item.product_slug %}"><img src="{{item.product_image.url}}" alt=""></a>
+                            </td>
+                        </tr>
+                        <tr style="background-color: #262626;">
+                            <td>Цена: {{item.product_price}}$</td>
+                            <td align="center">
+                                <a href=""><button class="product_button" style="margin:3px;">В корзину</button></a>
+                                <a href=""><button class="product_button">Быстрый заказ</button>
+                            </td>
+                        </tr>
+                        <tr><td></td><td></td></tr>
+                    </table>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
 {% endblock %}

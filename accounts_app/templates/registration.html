@@ -5,17 +5,12 @@
 <form action="" method="POST">
     {% csrf_token %}
     <table class="reg_table">
-        <tr><td>{{form.email.label}}</td><td>{{form.email}}</td></tr>
-        <tr><td>{{form.username.label}}</td><td>{{form.username}}</td></tr>
-        <tr><td>{{form.first_name.label}}</td><td>{{form.first_name}}</td></tr>
-        <tr><td>{{form.last_name.label}}</td><td>{{form.last_name}}</td></tr>
-        <tr><td>{{form.phone.label}}</td><td>{{form.phone}}</td></tr>
-        <tr><td>{{form.password1.label}}</td><td>{{form.password1}}</td></tr>
-        <tr><td>{{form.password2.label}}</td><td>{{form.password2}}</td></tr>
-        <tr><td align="center">{% for mes in messages%}{{mes}}{% endfor %}</td>
+        {% for input in form %}
+        <tr><td>{{input.label}}</td><td>{{input}}</td><td>{{input.errors}}</td></tr>
+        {% endfor %}
+        <tr><td align="center">{% for mes in messages%}{{mes.error}}{% endfor %}</td>
             <td align="center"><input class="reg_button" type="submit" value="Регистрация"></td></tr>
     </table>
-
 </form>
 
 
