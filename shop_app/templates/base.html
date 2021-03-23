@@ -26,7 +26,8 @@
                     </form>
                     {% else %}
                     <form action="{% url 'accounts_app:login' %}" method="get">
-                        <button class="button_cart">Вход</button>
+                        <input type="hidden" name="next" value="{{request.path}}">
+                        <button class="button_cart"><a href="{% url 'accounts_app:login' %}"></a>Вход</button>
                     </form>
                     {% endif %}
                 </td>
@@ -46,5 +47,6 @@
 {% block content %}
 
 {% endblock %}
+
 </body>
 </html>

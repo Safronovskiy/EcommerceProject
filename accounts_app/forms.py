@@ -3,6 +3,7 @@ from django.contrib.auth import password_validation
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, AuthenticationForm, UsernameField
 from django.core.exceptions import ValidationError
 from .models import AuthUserModel
+from captcha.fields import CaptchaField
 
 
 
@@ -13,7 +14,7 @@ class AuthUserRegisterForm(UserCreationForm):
     password2 = forms.CharField( label=("Подтверждение пароля"), strip=False,
         widget=forms.PasswordInput(attrs={'class': 'regform_inputs'}),
         help_text=("Enter the same password as before, for verification."))
-
+    captcha = CaptchaField(label='Введите символы')
     class Meta:
         model = AuthUserModel
         fields = ['email', 'username', 'first_name', 'last_name', 'phone', 'password1', 'password2']

@@ -14,7 +14,7 @@ SECRET_KEY = '44n16_(7lg3odx6k&fbz18-6-@)nj-twavcvvx3^n!q@f9+jr='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['safronovskiy.pythonanywhere.com', '0.0.0.0']
 
 
 # Application definition
@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts_app',
     'shop_app',
+    'captcha',
 ]
 
 MIDDLEWARE = [
@@ -118,7 +119,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
-
 AUTH_USER_MODEL = 'accounts_app.AuthUserModel'
+
 
 

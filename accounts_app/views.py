@@ -1,10 +1,12 @@
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 from .forms import AuthUserRegisterForm, LoginForm
 from .models import AuthUserModel
 from django.contrib import messages
+from django.conf import settings
 
 
 
@@ -38,9 +40,9 @@ def login_view(request):
         print(request.POST)
         if form.is_valid():
             user = authenticate(request, username=form.cleaned_data['username'], password=form.cleaned_data['password'])
-            print(user)
             if user is not None:
                 login(request, user)
+                print(request.path)
                 return redirect('accounts_app:profile')
             else:
                 messages.error(request, 'Такого пользователя не существует.')
@@ -62,6 +64,9 @@ def logout_view(request):
     else:
         return render(request, 'logout_confirmation.html')
 
+
+
+@login_required()
 def profile_view(request):
     return render(request, 'profile.html',{})
 

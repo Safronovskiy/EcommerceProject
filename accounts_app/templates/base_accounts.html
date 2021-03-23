@@ -14,12 +14,22 @@
             <tr>
                 <td align="right"><a href="" class="ok_search_btn">Ok</a></td>
                 <td width="500px" align="left"><input type="text" class="search_input_field"></td>
-                <td width="200px"></td>
+                <td width="200px">
+                    {% if request.user.is_authenticated %}
+                    <p>Добро пожаловать, <a href="{% url 'accounts_app:profile' %}">{{user.username}}</a> !</p>
+                    {% endif %}
+                </td>
                 <td width="70px"><button class="button_cart">Kорзина</button></td>
                 <td align="right" width="70px">
-                    <form action="{% url 'accounts_app:login' %}" method="get">
-                        <button class="button_cart">Вход</button>
+                    {% if request.user.is_authenticated %}
+                    <form action="{% url 'accounts_app:logout' %}" method="get">
+                        <button class="button_cart">Выход</button>
                     </form>
+                    {% else %}
+                    <form action="{% url 'accounts_app:login' %}" method="get">
+                        <button class="button_cart"><a href="{% url 'accounts_app:login' %}"></a>Вход</button>
+                    </form>
+                    {% endif %}
                 </td>
             </tr>
         </table>
