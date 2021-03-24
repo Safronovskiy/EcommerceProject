@@ -66,7 +66,7 @@ WSGI_APPLICATION = 'ecommerce_project.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'Safronovskiy.mysql.pythonanywhere-services.com',
         'NAME': 'Safronovskiy$EcomProjDB',
         'USER': 'Safronovskiy',
         'PASSWORD':'1111n1111',
