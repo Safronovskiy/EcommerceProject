@@ -67,7 +67,11 @@ WSGI_APPLICATION = 'ecommerce_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': 'Safronovskiy$EcomProjDB',
+        'USER': 'Safronovskiy',
+        'PASSWORD':'1111n1111',
+        'HOST': 'Safronovskiy.mysql.pythonanywhere-services.com',
+        'PORT':'',
     }
 }
 #------------PostgreSQL------------------
